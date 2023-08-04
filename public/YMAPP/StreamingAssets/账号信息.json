@@ -1,0 +1,637 @@
+{
+  "projects_info": [
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 29,
+          "name": "QDF-0016",
+          "number": "0016"
+        }
+      ],
+      "num": "JS-SZ-YYJ-ZJJX-20210508",
+      "id": 33,
+      "name": "江苏苏州平江河项目",
+      "waters_id": 23
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 23,
+          "name": "QDF-0012",
+          "number": "0012"
+        }
+      ],
+      "num": "XFD-0001",
+      "id": 34,
+      "name": "浙江嘉善祥符荡项目",
+      "waters_id": 32
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 16,
+          "name": "QDF-0006",
+          "number": "0006"
+        },
+        {
+          "project_type": 1,
+          "id": 14,
+          "name": "QDF-0002",
+          "number": "0002"
+        },
+        {
+          "project_type": 1,
+          "id": 21,
+          "name": "QDF-0008",
+          "number": "0008"
+        },
+        {
+          "project_type": 1,
+          "id": 24,
+          "name": "QDF-0010",
+          "number": "0010"
+        },
+        {
+          "project_type": 1,
+          "id": 18,
+          "name": "QDF-0005",
+          "number": "0005"
+        }
+      ],
+      "num": "ZTH-001",
+      "id": 35,
+      "name": "浙江瑞安中塘河",
+      "waters_id": 15
+    },
+    {
+      "ship_info": [],
+      "num": "JS-NJ-SH-MCH-20211001",
+      "id": 36,
+      "name": "江苏南京莫愁湖项目",
+      "waters_id": 14
+    },
+    {
+      "ship_info": [],
+      "num": "JS-KS-BF-KLH-20210901",
+      "id": 37,
+      "name": "江苏昆山傀儡湖",
+      "waters_id": 16
+    },
+    {
+      "ship_info": [],
+      "num": "JS-SZ-WM-SFH-20210629",
+      "id": 38,
+      "name": "江苏苏州白莲浜",
+      "waters_id": 17
+    },
+    {
+      "ship_info": [],
+      "num": "JS-SZ-STT-XXXX-20210629",
+      "id": 39,
+      "name": "江苏苏州前塘河项目",
+      "waters_id": 18
+    },
+    {
+      "ship_info": [],
+      "num": "DYH-0001",
+      "id": 40,
+      "name": "江苏常州大运河项目",
+      "waters_id": 19
+    },
+    {
+      "ship_info": [],
+      "num": "JS-CZ-BTH-0001",
+      "id": 41,
+      "name": "江苏常州北塘河项目",
+      "waters_id": 64
+    },
+    {
+      "ship_info": [],
+      "num": "JS-KS-BF-HQ-20210705",
+      "id": 42,
+      "name": "江苏苏州花桥河",
+      "waters_id": 20
+    },
+    {
+      "ship_info": [],
+      "num": "JS-SZ-YYJ-CH-20210508",
+      "id": 43,
+      "name": "江苏苏州漕湖项目",
+      "waters_id": 24
+    },
+    {
+      "ship_info": [
+
+      ],
+      "num": "SLSX-001",
+      "id": 44,
+      "name": "浙江嘉善十里水乡项目",
+      "waters_id": 25
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 25,
+          "name": "QDF-0013",
+          "number": "0013"
+        }
+      ],
+      "num": "JS-SZ-QD-TED-20201117",
+      "id": 46,
+      "name": "江苏苏州天鹅湖项目",
+      "waters_id": 29
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 27,
+          "name": "QDF-0009",
+          "number": "0009"
+        },
+        {
+          "project_type": 1,
+          "id": 15,
+          "name": "QDF-0001",
+          "number": "0001"
+        }
+      ],
+      "num": "XH-001",
+      "id": 47,
+      "name": "浙江杭州西湖项目",
+      "waters_id": 30
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 20,
+          "name": "QDF-0007",
+          "number": "0007"
+        }
+      ],
+      "num": "HMH-001",
+      "id": 49,
+      "name": "北京昆明湖项目",
+      "waters_id": 33
+    },
+    {
+      "ship_info": [],
+      "num": "zj-hj-bj-cgj202109",
+      "id": 55,
+      "name": "浙江杭州滨江项目",
+      "waters_id": 35
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 30,
+          "name": "QDF-0017",
+          "number": "0017"
+        },
+        {
+          "project_type": 1,
+          "id": 33,
+          "name": "QDF-0020",
+          "number": "0020"
+        },
+        {
+          "project_type": 1,
+          "id": 31,
+          "name": "QDF-0018",
+          "number": "0018"
+        },
+        {
+          "project_type": 1,
+          "id": 36,
+          "name": "CFZ-0002",
+          "number": "CFZ-0002"
+        },
+        {
+          "project_type": 1,
+          "id": 35,
+          "name": "CFZ-0001",
+          "number": "CFZ-0001"
+        },
+        {
+          "project_type": 1,
+          "id": 37,
+          "name": "CFZ-0003",
+          "number": "CFZ-0003"
+        },
+        {
+          "project_type": 1,
+          "id": 38,
+          "name": "CFZ-0004",
+          "number": "CFZ-0004"
+        },
+        {
+          "project_type": 1,
+          "id": 39,
+          "name": "CFZ-0005",
+          "number": "CFZ-0005"
+        },
+        {
+          "project_type": 1,
+          "id": 40,
+          "name": "CFZ-0006",
+          "number": "CFZ-0006"
+        },
+        {
+          "project_type": 1,
+          "id": 41,
+          "name": "CFZ-0007",
+          "number": "CFZ-0007"
+        },
+        {
+          "project_type": 1,
+          "id": 42,
+          "name": "CFZ-0008",
+          "number": "CFZ-0008"
+        }
+      ],
+      "num": "WZJY2021102501",
+      "id": 56,
+      "name": "浙江温州市鹿城区",
+      "waters_id": 61
+    },
+    {
+      "ship_info": [],
+      "num": "wrth-ra-z-0001",
+      "id": 57,
+      "name": "浙江瑞安温瑞塘河",
+      "waters_id": 61
+    },
+    {
+      "ship_info": [],
+      "num": "HN-ZZ-GYHH-20200901",
+      "id": 60,
+      "name": "河南郑州巩义黄河",
+      "waters_id": 59
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-QZ-QJ-20200830",
+      "id": 61,
+      "name": "浙江衢州衢江",
+      "waters_id": 58
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-TZ-HD-20200716",
+      "id": 62,
+      "name": "浙江台州河段",
+      "waters_id": 57
+    },
+    {
+      "ship_info": [],
+      "num": "JS-SZ-TEH-20210119",
+      "id": 63,
+      "name": "江苏苏州天鹅湖",
+      "waters_id": 29
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-NB-HTH-20210524",
+      "id": 64,
+      "name": "浙江宁波后塘河",
+      "waters_id": 22
+    },
+    {
+      "ship_info": [],
+      "num": "nbhth-001",
+      "id": 65,
+      "name": "浙江宁波后塘河",
+      "waters_id": 22
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-RA-TH20201028",
+      "id": 66,
+      "name": "浙江瑞安塘河",
+      "waters_id": 31
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-JX-DY20220305",
+      "id": 67,
+      "name": "浙江嘉兴大云镇",
+      "waters_id": 25
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 65,
+          "name": "QDF-0025",
+          "number": "0025"
+        }
+      ],
+      "num": "THJ-KS（2022）024",
+      "id": 68,
+      "name": "四川成都锦江水生态治理",
+      "waters_id": 62
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 69,
+          "name": "QDF-0022",
+          "number": "0022"
+        }
+      ],
+      "num": "ZJ-SX-SDJD20220328",
+      "id": 69,
+      "name": "浙江绍兴孙端街道",
+      "waters_id": 63
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 70,
+          "name": "QDF-0023",
+          "number": "0023"
+        }
+      ],
+      "num": "JS-CZ-BTH20220401",
+      "id": 70,
+      "name": "江苏常州河道处河道保洁(北塘河)",
+      "waters_id": 64
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 32,
+          "name": "QDF-0019",
+          "number": "0019"
+        },
+        {
+          "project_type": 1,
+          "id": 71,
+          "name": "QDF-0026",
+          "number": "0026"
+        }
+      ],
+      "num": "JS-CZ-LDYH20220401",
+      "id": 71,
+      "name": "江苏常州河道处河道保洁(老大运河)",
+      "waters_id": 65
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 72,
+          "name": "QDF-0027",
+          "number": "0027"
+        }
+      ],
+      "num": "ZJ-XS-LPZ",
+      "id": 72,
+      "name": "浙江萧山临浦镇峙山河",
+      "waters_id": 66
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 3,
+          "id": 73,
+          "name": "QDF-0028",
+          "number": "0028"
+        }
+      ],
+      "num": "HB-JSH-QT-2022-005",
+      "id": 73,
+      "name": "河北孝义河人工湿地强化去除富营养化水体氮素关键技术研究",
+      "waters_id": 67
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-ZS-LCH20220604",
+      "id": 74,
+      "name": "浙江舟山临城河",
+      "waters_id": 68
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-ZS-BQZH20220609",
+      "id": 75,
+      "name": "浙江舟山白泉主河",
+      "waters_id": 69
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-ZS-TLZH20220607",
+      "id": 76,
+      "name": "浙江舟山田螺峙河",
+      "waters_id": 70
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-RA-TTPH20220615",
+      "id": 77,
+      "name": "浙江瑞安汀田浦河",
+      "waters_id": 71
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-RA-TX-XDDH20220627",
+      "id": 78,
+      "name": "浙江瑞安塘下新渎河",
+      "waters_id": 73
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-RA-TX-FDH20220627",
+      "id": 79,
+      "name": "浙江瑞安塘下凤山河",
+      "waters_id": 72
+    },
+    {
+      "ship_info": [],
+      "num": "ZJ-RA-TJYH20220717",
+      "id": 80,
+      "name": "浙江瑞安天井垟河",
+      "waters_id": 74
+    },
+    {
+      "ship_info": [],
+      "num": "JSSW2022-G-001",
+      "id": 81,
+      "name": "苏州平江区",
+      "waters_id": 23
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 25,
+          "name": "QDF-0013",
+          "number": "0013"
+        }
+      ],
+      "num": "JS-SZ-XTH20220819",
+      "id": 82,
+      "name": "苏州水利工程",
+      "waters_id": 75
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 75,
+          "name": "QDF-0030",
+          "number": "0030"
+        }
+      ],
+      "num": "JS-KS-XYH20220826",
+      "id": 83,
+      "name": "江苏昆山小虞河",
+      "waters_id": 76
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 74,
+          "name": "QDF-0029",
+          "number": "0029"
+        }
+      ],
+      "num": "ZJ-JX-SJQG20220828",
+      "id": 89,
+      "name": "嘉善孙家桥港",
+      "waters_id": 77
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 78,
+          "name": "苏市水保5001",
+          "number": "0033"
+        },
+        {
+          "project_type": 1,
+          "id": 77,
+          "name": "苏市水保5002",
+          "number": "0032"
+        }
+      ],
+      "num": "JS-NJ-MST20220916",
+      "id": 90,
+      "name": "江苏省苏州市姑苏区茅山塘",
+      "waters_id": 78
+    },
+    {
+      "ship_info": [
+        {
+          "project_type": 1,
+          "id": 76,
+          "name": "苏市水保5003",
+          "number": "0031"
+        }
+      ],
+      "num": "JS-NJ-WTH20220916",
+      "id": 91,
+      "name": "江苏省苏州市姑苏区外塘河",
+      "waters_id": 79
+    }
+  ]
+}
+
+
+//{
+//  "data": {
+//    "多边形": [
+//      {
+//        "waters_id": 78, // 水域ID
+//        "waters__name": "环城河", // 水域名称
+//        "id": 2, // 水域标注主键ID
+//        "area": [
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          },
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          }
+
+//        ],
+//        "waters__e_lat": "30.9072979", // 水域纬度
+//        "waters__e_lng": "120.9416445" // 水域经度
+
+//      },
+//      {
+//        "waters_id": 78, // 水域ID
+//        "waters__name": "环城河", // 水域名称
+//        "id": 2, // 水域标注主键ID
+//        "area": [
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          },
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          }
+
+//        ],
+//        "waters__e_lat": "30.9072979", // 水域纬度
+//        "waters__e_lng": "120.9416445" // 水域经度
+
+//      }
+//    ],
+//    "矩形": [
+//      {
+//        "waters_id": 78, // 水域ID
+//        "waters__name": "环城河", // 水域名称
+//        "id": 2, // 水域标注主键ID
+//        "area": [
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          },
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          }
+
+//        ],
+//        "waters__e_lat": "30.9072979", // 水域纬度
+//        "waters__e_lng": "120.9416445" // 水域经度
+
+//      },
+//      {
+//        "waters_id": 78, // 水域ID
+//        "waters__name": "环城河", // 水域名称
+//        "id": 2, // 水域标注主键ID
+//        "area": [
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          },
+//          {
+//            "经度": "1512512",
+//            "维度": "151215"
+//          }
+
+//        ],
+//        "waters__e_lat": "30.9072979", // 水域纬度
+//        "waters__e_lng": "120.9416445" // 水域经度
+
+//      }
+//    ]
+//  },
+//  "retCode": 0,
+//  "retMsg": "成功 | Success"
+//}

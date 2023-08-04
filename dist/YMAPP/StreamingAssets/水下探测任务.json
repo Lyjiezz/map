@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "distance": "222",
+      "watersId": 22,
+      "cTime": "2021-11-03T16:00:00Z",
+      "deviceType": 1,
+      "waters__name": "后塘河",
+      "id": 8
+    },
+    {
+      "distance": "666",
+      "watersId": 31,
+      "cTime": "2021-10-21T16:00:00Z",
+      "deviceType": 1,
+      "waters__name": "唐河",
+      "id": 4
+    },
+    {
+      "distance": "12",
+      "watersId": 31,
+      "cTime": "2021-10-21T16:00:00Z",
+      "speedType": 3,
+      "waters__name": "唐河",
+      "id": 7
+    },
+    {
+      "distance": "22222",
+      "watersId": 31,
+      "cTime": "2021-10-19T16:00:00Z",
+      "speedType": 1,
+      "waters__name": "唐河",
+      "id": 5
+    },
+    {
+      "distance": "111",
+      "watersId": 33,
+      "cTime": "2021-10-05T16:00:00Z",
+      "speedType": 1,
+      "waters__name": "昆明湖",
+      "id": 8
+    },
+    {
+      "distance": "11",
+      "watersId": 31,
+      "cTime": "2021-09-29T16:00:00Z",
+      "speedType": 2,
+      "waters__name": "唐河",
+      "id": 6
+    }
+  ],
+  "retCode": 0,
+  "retMsg": "成功 | Success"
+}

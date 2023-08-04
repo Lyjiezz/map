@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"  name="viewport" /> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"/>
+	<title>Unity WebGL Player | YiMingChiHuiRiverCloudPlatform</title>
+  <!-- <script src="https://requirejs.org/docs/release/2.3.6/r.js"></script> -->
+	<link rel="shortcut icon" href="TemplateData/favicon.ico">
+	<link rel="stylesheet" href="TemplateData/style.css">
+	<script src="TemplateData/UnityProgress.js"></script>
+	<script src="./Build/UnityLoader.js"></script>
+	<script src="./vue.js"></script>
+	<script src="./axios.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+	<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+	<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+	<style lang="scss">
+		html {
+			padding: 0;
+			margin: 0;
+			height: 0;
+		}
+
+		#search-box {
+			position: absolute;
+			top: 1.5vh;
+			z-index: 1;
+			width: 95vw;
+			left: 2.5vw;
+			height: 10vw;
+		}
+
+		.el-input {
+			height: 100%;
+		}
+
+		.el-input__inner {
+			background-color: rgba(53, 131, 209, .3);
+			border: 1px solid #3583D1;
+			height: 100%;
+			line-height: 100%;
+			color: #FFFDEF;
+		}
+
+		/* #btn-box {
+			box-sizing: border-box;
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			top: 2vh;
+			z-index: 1;
+			width: 10vw;
+			padding: 0;
+			right: 5vw;
+			height: 95vh;
+		} */
+		.img-box {
+			display: flex;
+			justify-content: center;
+			width: 10vw;
+		}
+
+		.btn-box-img {
+			width: 5vw;
+			height: 5vw;
+			margin-top: 2vw;
+			margin-bottom: 3vw;
+		}
+
+		#top-box {
+			position: absolute;
+			/* s */
+			display: flex;
+			flex-direction: column;
+			top: 2vh;
+			z-index: 1;
+			width: 10vw;
+			padding: 0;
+			right: 5vw;
+		}
+
+		#bottom-box {
+			position: absolute;
+			/* bottom: 0; */
+			display: flex;
+			flex-direction: column;
+			bottom: 2vh;
+			z-index: 1;
+			width: 10vw;
+			padding: 0;
+			right: 5vw;
+
+		}
+
+		.messageDialog {
+			z-index: 9;
+			visibility:hidden;
+		}
+
+		.el-dialog__header {
+			background-color: #3583D1;
+			padding: 15px !important;
+		}
+
+		.el-dialog__title {
+			color: #ffffff;
+		}
+
+		.el-dialog__headerbtn .el-dialog__close {
+			color: #ffffff;
+		}
+
+		.el-dialog__body {
+			padding: 20px !important;
+		}
+
+		.dialogBox {
+			max-height: 400px;
+			/* padding: 0 20px; */
+			line-height: 36px;
+			overflow: scroll;
+			border: 1px dashed #8EA998;
+		}
+
+		.dialogOne {
+			height: 36px;
+			padding: 0 20px;
+			background-color: rgba(53, 131, 209, .08);
+		}
+
+		.dialogTwo {
+			padding: 0 20px;
+			height: 36px;
+		}
+
+		.dialogBox span {
+			display: inline-block;
+			width: 50%;
+		}
+
+		.warningImg {
+			position: absolute;
+			top: 30%;
+			/* left: calc(50% - 50px); */
+			z-index: 9;
+		}
+		.waterInput {
+			border: #3583D1 1px solid;
+			border-radius: 5px;
+			height: 30px;
+			width: 90%;
+			padding-left: 10px;
+		}
+		.el-input__suffix{
+			display: none;
+		}
+		.el-form-item {
+			margin-bottom: 5px;
+		}
+		.avatar-uploader .el-upload {
+			border: 1px dashed #d9d9d9;
+			border-radius: 6px;
+			cursor: pointer;
+			position: relative;
+			overflow: hidden;
+		}
+		.avatar-uploader .el-upload:hover {
+			border-color: #409EFF;
+		}
+		.avatar-uploader-icon {
+			font-size: 28px;
+			color: #8c939d;
+			width: 178px;
+			height: 178px;
+			line-height: 178px;
+			text-align: center;
+		}
+		.avatar {
+			width: 178px;
+			height: 178px;
+			display: block;
+		}
+		.dialog-footer-item {
+			display: flex;
+			margin-right: 20px;
+			line-height: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <input type="text" style="position: absolute; z-index: 9;"> -->
+	<div id="app" class="webgl-content" style="width: 100%; height: 100%">
+		<div id="search-box">
+			<el-input v-if="showSearch && mapType != 'label' && mapType != 'map'" v-model="searchMsg"></el-input>
+			<el-select style="height: 100%; width: 100%" @change="selectWater" v-else v-model="nowWater"
+			 ref="select"
+			 @blur.native.capture="onblur"
+			 @hook:mounted="cancalReadOnly"
+			 @visible-change="cancalReadOnly"
+			 filterable
+			 placeholder="请选择">
+				<el-option
+					v-for="item in waterList"
+					:key="item.waters_id"
+					:label="item.waters__name"
+					:value="item.waters_id">
+				</el-option>
+			</el-select>
+			<!-- <input type="" name="" id="" value="" /> -->
+		</div>
+		<div id="top-box">
+			<!-- 搜索 -->
+			<div class="img-box">
+				<img class="btn-box-img" onclick="" src="../images/map/search.png">
+				<!-- <img class="btn-box-img" onclick="" src="../images/map/searchActive.png" > -->
+			</div>
+			<!-- 放大地图 -->
+			<div class="img-box" @click="showActiveImg('1', 'mapZoom')">
+				<img v-if="imgActive=='1'" class="btn-box-img" src="../images/map/biggerActive.png">
+				<img v-else class="btn-box-img" src="../images/map/bigger.png">
+			</div>
+			<!-- 缩小地图 -->
+			<div class="img-box" @click="showActiveImg('2', 'mapNarrow')">
+				<img v-if="imgActive=='2'" class="btn-box-img" src="../images/map/smallerActive.png">
+				<img v-else class="btn-box-img" src="../images/map/smaller.png">
+			</div>
+			<!-- 定位到当前位置 -->
+			<div class="img-box" v-if="mapType != 'label'" @click="showActiveImg('3')">
+				<img v-if="imgActive=='3' && (mapType != 'map' || mapType != 'label')" class="btn-box-img"
+					src="../images/map/positionActive.png">
+				<img v-else class="btn-box-img" src="../images/map/position.png">
+			</div>
+			<!-- 切换地图模式（行政/卫星） -->
+			<div class="img-box" @click="showActiveImg('4', 'shadowgraph')">
+				<img v-if="imgActive=='4'" class="btn-box-img" src="../images/map/mapActive.png">
+				<img v-else class="btn-box-img" src="../images/map/map.png">
+			</div>
+			<!-- 预警事件 -->
+			<div class="img-box" v-if="mapType != 'label'" @click="showActiveImg('7', 'warningEventsOpen')">
+				<img v-if="imgActive=='7'" class="btn-box-img" src="../images/map/warningActive.png">
+				<img v-else class="btn-box-img" src="../images/map/warning.png">
+			</div>
+
+			<!-- 水域标注-电子围栏 -->
+			<div class="img-box" v-if="mapType == 'label' || mapType == 'map'" @click="showActiveImg('14', '')">
+				<img v-if="imgActive=='14'" class="btn-box-img" src="../images/map/选中/电子围栏-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/电子围栏.png">
+			</div>
+			<!-- 航线轨迹 -->
+			<div class="img-box" v-if="mapType == 'map'" @click="showActiveImg('19', '')">
+				<img v-if="imgActive=='19'" class="btn-box-img" src="../images/map/航线轨迹-蓝.png">
+				<img v-else class="btn-box-img" src="../images/map/航线轨迹.png">
+			</div>
+			<!-- 路径规划 -->
+			<div class="img-box" v-if="mapType == 'map'" @click="showActiveImg('20', '')">
+				<img v-if="imgActive=='20'" class="btn-box-img" src="../images/map/路径规划-蓝.png">
+				<img v-else class="btn-box-img" src="../images/map/路径规划.png">
+			</div>
+			<!-- 水质 -->
+			<div class="img-box" v-if="mapType == 'map'" @click="showActiveImg('12', 'warningEventsOpen')">
+				<img v-if="imgActive=='12'" class="btn-box-img" src="../images/map/选中/水质-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/水质.png">
+			</div>
+			<!-- 探测 -->
+			<div class="img-box" v-if="mapType == 'map'" @click="showActiveImg('13', 'warningEventsOpen')">
+				<img v-if="imgActive=='13'" class="btn-box-img" src="../images/map/选中/探测-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/探测.png">
+			</div>
+			<!-- 水域标注-画线 -->
+			<div class="img-box" v-if="mapType == 'label'" @click="showActiveImg('15', '')">
+				<img v-if="imgActive=='15'" class="btn-box-img" src="../images/map/选中/画线-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/画线.png">
+			</div>
+			<!-- 水域标注-矩形 -->
+			<div class="img-box" v-if="mapType == 'label'" @click="showActiveImg('16', 'warningEventsOpen')">
+				<img v-if="imgActive=='16'" class="btn-box-img" src="../images/map/选中/矩形-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/矩形.png">
+			</div>
+			<!-- 水域标注-园形 -->
+			<div class="img-box" v-if="mapType == 'label'" @click="showActiveImg('17', 'warningEventsOpen')">
+				<img v-if="imgActive=='17'" class="btn-box-img" src="../images/map/选中/圆形-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/圆形.png">
+			</div>
+			<!-- 水域标注-标签 -->
+			<div class="img-box" v-if="mapType == 'label'" @click="showActiveImg('18', 'warningEventsOpen')">
+				<img v-if="imgActive=='18'" class="btn-box-img" src="../images/map/选中/标签-选中.png">
+				<img v-else class="btn-box-img" src="../images/map/未选中/标签.png">
+			</div>
+		</div>
+		<div id="bottom-box" v-if="!isend && mapType!='map'">
+			<!-- 实时调度 -->
+			<div class="img-box" v-if="mapType != 'label'" @click="showActiveImg('5', 'newPath')">
+				<img v-if="imgActive=='5'" class="btn-box-img" src="../images/map/dispatchActive.png">
+				<img v-else class="btn-box-img" src="../images/map/dispatch.png">
+			</div>
+			<!-- 修改航线 -->
+			<div class="img-box" @click="showActiveImg('6', 'modifyTheRoutes')" v-if="openFlag">
+				<img v-if="(imgActive=='6' || imgActive=='8' || imgActive=='9' || imgActive=='15' || imgActive=='16' || imgActive=='17' || imgActive=='18') && isChangeLine"
+					class="btn-box-img" src="../images/map/changeLineActive.png">
+				<img v-else class="btn-box-img" src="../images/map/changeLine.png">
+			</div>
+			<!-- 新增航线 -->
+			<div class="img-box" @click="showActiveImg('8', 'newPoint')" v-if="openFlag">
+				<!-- <img v-if="imgActive=='8'" class="btn-box-img" src="../images/map/newActive.png" > -->
+				<img class="btn-box-img" src="../images/map/new.png">
+			</div>
+			<!-- 删除航线 -->
+			<div class="img-box" @click="showActiveImg('9', 'deletePoint')">
+				<!-- <img v-if="imgActive=='9'" class="btn-box-img" src="../images/map/delActive.png" > -->
+				<img class="btn-box-img" src="../images/map/del.png">
+			</div>
+			<!-- 清除航线 -->
+			<div class="img-box" v-if="mapType != 'label'" @click="showActiveImg('10', 'deletePath')" v-if="openFlag">
+				<!-- <img v-if="imgActive=='10'" class="btn-box-img" src="../images/map/clearActive.png" > -->
+				<img class="btn-box-img" src="../images/map/clear.png">
+			</div>
+			<!-- 保存 -->
+			<!-- <div class="img-box" @click="showActiveImg('11', 'deletePath')" v-if="openFlag"> -->
+			<div class="img-box" @click="showActiveImg('11', 'savePath')" v-if="openFlag">
+				<!-- <img v-if="imgActive=='11'" class="btn-box-img" src="../images/map/saveActive.png" > -->
+				<img class="btn-box-img" src="../images/map/save.png">
+			</div>
+			<!-- 展开/收起 -->
+			<div class="img-box" @click="openOrClose">
+				<img :style="setStyle" class="btn-box-img" src="../images/map/open.png">
+			</div>
+		</div>
+		
+		<el-dialog title="检测点" :visible.sync="centerDialogVisible" :modal="false" width="90%" class="messageDialog"
+			center>
+			<div class="dialogBox">
+				<div class="dialogOne">
+					<span>测点名称</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>所属水域</span>
+					<span></span>
+				</div>
+				<div class="dialogOne">
+					<span>检测日期</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>天气情况</span>
+					<span></span>
+				</div>
+				<div class="dialogOne">
+					<span>ph值(无纲量)</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>电导率(μS/cm)</span>
+					<span></span>
+				</div>
+				<div class="dialogOne">
+					<span>溶解氧(mg/L)</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>浊度(NTU)</span>
+					<span></span>
+				</div>
+				<div class="dialogOne">
+					<span>温度(°C)</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>总磷(mg/L)</span>
+					<span></span>
+				</div>
+				<div class="dialogOne">
+					<span>总氮(mg/L)</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>氨氮(mg/L)</span>
+					<span></span>
+				</div>
+				<div class="dialogOne">
+					<span>化学需氧量(mg/L)</span>
+					<span></span>
+				</div>
+				<div class="dialogTwo">
+					<span>叶绿素(mg/L)</span>
+					<span></span>
+				</div>
+			</div>
+		</el-dialog>
+
+		<el-dialog title="标签信息" :visible.sync="labelDialogVisible" :modal="false" width="90%" class="messageDialog"
+			center>
+			<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="60px" class="">
+				<el-form-item label="名称：">
+					<!-- <el-input v-model="ruleForm.name" autocomplete="off"></el-input> -->
+					<input class="waterInput" type="text" v-model="ruleForm.name" style="position: absolute; z-index: 9;">
+				</el-form-item>
+				<el-form-item label="详情：">
+					<!-- <el-input v-model="ruleForm.desc" autocomplete="off"></el-input> -->
+					<input class="waterInput" type="text" v-model="ruleForm.desc" style="position: absolute; z-index: 9;">
+				</el-form-item>
+				<el-form-item label="照片："> 
+					<!-- <el-upload
+						action=""
+						:on-preview="handlePictureCardPreview"
+						:on-remove="handleRemove"
+						:http-request="Uploadfile"
+						>
+						<i class="el-icon-plus"></i>
+					</el-upload> -->
+					<el-upload
+						class="avatar-uploader"
+						action="https://jsonplaceholder.typicode.com/posts/"
+						:show-file-list="false"
+						:on-preview="handlePictureCardPreview"
+						:on-remove="handleRemove"
+						:http-request="Uploadfile"
+						v-if="mapType == 'label'"
+					>
+						<img v-if="oss_imgurl" :src="oss_imgurl" class="avatar">
+						<i v-else class="el-icon-plus avatar-uploader-icon"></i>
+					</el-upload>
+
+					<el-image v-else :preview-src-list="srcList" :src="oss_imgurl" class="avatar"></el-image>
+				</el-form-item>
+				<el-form-item label="时间：">
+					<span @click="openPicker" style="border: #3583D1 1px solid; line-height: 30px; padding-left: 10px; border-radius: 5px; width: 90%; height: 30px; position: absolute;z-index: 9;">{{waterDate}}</span>
+					<mt-datetime-picker
+						type="date"
+						ref="picker"
+						@confirm="handleConfirm"
+						year-format="{value} 年"
+						month-format="{value} 月"
+						date-format="{value} 日">
+					</mt-datetime-picker>
+				</el-form-item>
+			</el-form>
+
+			<span slot="footer" v-if="mapType=='label'" class="dialog-footer" style="display: flex;justify-content: center;">
+				<span class="dialog-footer-item" @click="labelSave">
+					<img style="width:30px;margin-right: 10px;" src="../images/map/imgSave.png" alt="">
+					<span style="color: #3583D1;">确 定</span>
+				</span>
+				<span class="dialog-footer-item" @click="labelDialogVisible = false">
+					<img style="width:30px;margin-right: 10px;" src="../images/map/imgCancel.png" alt="">
+					<span style="color: #999999;">取 消</span>
+				</span>
+				<!-- <el-button @click="labelDialogVisible = false">取 消</el-button>
+				<el-button type="primary" @click="saveWaterLabel">确 定</el-button> -->
+			</span>
+		</el-dialog>
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt="">
+    </el-dialog>
+
+		<el-image class="warningImg" :src="imgurl" v-if="imgShow" @click="imgShow=false">
+		</el-image>
+		<!-- <video src=""></video> -->
+		<div id="unityContainer" style="width: 100%; height: 100%"></div>
+
+	</div>
+</body>
+<script>
+    async function upload(param) {
+		let file = param.file; // 得到文件的内容
+		console.log(file);
+		//填写获取签名的地址
+		const getPolicyApiUrl =
+		"http://47.114.52.47/app/upload/image/"; //获取oss签名的地址 这是后端的那个接口地址
+		var file_re = await readFileAsBuffer(file)
+		// 获取oss签名
+		axios.get(getPolicyApiUrl)
+		.then((response) => {
+			if (response.status == 200) {
+				let policyData = response.data.data;
+				var client = new OSS.Wrapper({
+					region: "oss-cn-hangzhou", //oss地址
+					accessKeyId: policyData.accessKey, //你的ak
+					accessKeySecret: policyData.accessSecret, //你的secret
+					bucket:  policyData.bucketName //oss名字
+				});
+				var imgtype = file.type.substr(6,4);
+				var store = "waterLabel/"+file.uid+'.'+imgtype
+				client.put(store,  file_re).then(res =>{
+					//这个结果就是url
+					console.log(res)
+					// var a = client.signatureUrl(store);
+					app.oss_imgurl = res.url;
+					app.srcList = []
+					app.srcList.push(res.url)
+					// console.log(a)
+				})
+			}
+
+		});
+    }
+
+
+	const readFileAsBuffer = (file) => {
+      const reader = new FileReader();
+      return new Promise((resolve, reject) => {
+        reader.readAsDataURL(file);
+        reader.onload = function(e) {
+          const base64File = reader.result.replace(
+            /^data:\w+\/\w+;base64,/,
+            ""
+          );
+          resolve(new OSS.Buffer(base64File, "base64"));
+        };
+      });
+    }
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			searchMsg: "",
+			openFlag: true, // 是否展开
+			nowWater: '', // 当前水域
+			waterList: [
+			], // 水域列表
+			wvbtnshow: false, // 预警事件 修改航线 实时调度 按钮显示
+			// taskId: '308', // 任务id
+			taskId: getQuery('taskId'), // 任务id
+			location: "", // 船的位置
+			setStyle: {},
+			showSearch: false,
+			endTime: '', // 结束时间
+			isend: false,// 是否结束状态
+			imgActive: '',// 当前操作状态
+			isChangeLine: false,
+			mapType: '',
+			centerDialogVisible: false,
+			labelDialogVisible: false,
+			pictureUrl: '', // 水域标注图片
+			dialogImageUrl: '',
+			dialogVisible: false,
+			Dialogform: {
+				name: '',
+				waterName: '',
+				ph: '',
+				date2: '',
+				delivery: false,
+				type: [],
+				resource: '',
+				desc: ''
+			},
+			ruleForm: {
+				waters_id: '', // 水域ID
+				s_ts: '', // 创建时间戳
+				area: '', // 经度,纬度
+				waters__name: '', // 水域名称
+				name: '', // 标签名称
+				s_time: '',  // 创建时间对象
+				att_list: [ // 上传附件
+				],
+				id: '', // 水域标签ID
+				desc: '' // 水域标签描述
+			},
+			waterDate: '',
+			formLabelWidth: '120px',
+			rules: {
+				name: [
+					{ required: true, message: '请输入活动名称', trigger: 'blur' },
+					{ min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+				],
+				region: [
+					{ required: true, message: '请选择活动区域', trigger: 'change' }
+				],
+				date1: [
+					{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+				],
+			},
+			oss_imgurl: '',
+			srcList: [],
+			imgurl:'',
+			imgShow: false,
+		},
+		methods: {
+			position() {
+				uni.postMessage({
+					data: {
+						action: '经纬度'
+					}
+				})
+			},
+			openOrClose() {
+				this.openFlag = !this.openFlag
+				if (!this.openFlag) {
+					this.setStyle = {
+						transitionDuration: '0.4s',
+						transform: 'rotate(180deg)'
+					}
+				} else {
+					this.setStyle = {
+						transitionDuration: '0.4s',
+						transform: 'rotate(0deg)'
+					}
+				}
+			},
+			showActiveImg(num, dtype) {
+				if (this.imgActive == '15' && lineNum % 2 != 0) { // 判断当前是否为画线模式，且尚未退出就点击了其他按钮
+					WaterLableOnClickBtn('polygonExit')
+				}
+				if (this.imgActive == '7') { // 判断当前是否为水质预警，且尚未退出
+					MapPath('WarningIncidentClose')
+				}
+				if (this.isChangeLine && num != '5' && num != '6' && num != '8' && num != '9' && num != '10' && num != '11' && num != '15' && num != '16' && num != '17' && num != '18') { // 修改状态下不允许进行的操作
+					this.$toast('请先保存')
+					return
+				} else if (this.isChangeLine && num == '6') { // 再次点击修改航线/清除航线
+					return
+				} else if (this.isChangeLine && (num == '8' || num == '9' || num == '10' || num == '15' || num == '16' || num == '17' || num == '18')) {
+					// 修改航线下 新增点位 删除点位 清除航线 水域标注画线、矩形、圆形、标签
+					// 不做操作，不改变状态
+				} else {
+					this.isChangeLine = false
+				}
+				this.imgActive = num
+
+				if (num == '6') { // 修改状态
+					this.isChangeLine = true
+					if (this.mapType == 'label') { // 当前为水域标注状态
+						// 开启水域标注编辑功能
+						WaterLableOnClickBtn('modification')
+						return
+					}
+				}
+				if (!this.isChangeLine && num == '3') {
+					this.position()
+				} else {
+					if (Number(num) < 12) {
+						if (this.mapType == 'map') { // 一张图
+							if (num == '7') { // 预警
+								MapPath('WarningIncidentOpen')
+							} else {
+								RoutePlanningInteraction(dtype)
+							}
+						} else {
+							if (num == '9' && !this.isChangeLine) { //保存和删除
+								this.$toast('请先点击编辑')
+								return
+							}
+							if (num == '8'  && this.isChangeLine && this.mapType == 'label') { // 水域编辑新增多边形点位
+								WaterLableOnClickBtn('add')
+								return
+							}
+							if (this.mapType != 'label') {
+								if (num == '11') { // 保存
+									SavePath()
+								} else {
+									RoutePlanningInteraction(dtype)
+								}
+								return
+							}
+							if (num == '11') { // 水域标注保存
+								WaterLableOnClickBtn('save')
+							} else if (num == '9') { // 水域标注删除
+								WaterLableOnClickBtn('close')
+							} else {
+								RoutePlanningInteraction(dtype)
+							}
+						}
+					} else {
+						if (num == '12') { // 水质
+							MapPath('MonitoringPointOpen')
+						} else if (num == '13') { // 探测
+
+						} else if (num == '15') { // 水域画线
+							if (this.isChangeLine) {
+								lineNum++
+								if (lineNum % 2 == 0) { // 偶数为关闭画线
+									WaterLableOnClickBtn('polygonExit')
+								} else { // 奇数为开启画线
+									WaterLableOnClickBtn('polygonadd')
+								}
+							} else {
+								this.$toast('请先点击编辑')
+							}
+
+						} else if (num == '16') { // 水域矩形
+							if (this.isChangeLine) {
+								WaterLableOnClickBtn('rectangleadd')
+							} else {
+								this.$toast('请先点击编辑')
+							}
+
+						} else if (num == '17') { // 水域圆形
+							if (this.isChangeLine) {
+								WaterLableOnClickBtn('circleadd')
+							} else {
+								this.$toast('请先点击编辑')
+							}
+
+						} else if (num == '18') { // 水域标签
+							if (this.isChangeLine) {
+								WaterLableOnClickBtn('waterTag')
+							} else {
+								this.$toast('请先点击编辑')
+							}
+
+						}
+					}
+
+				}
+			},
+			selectWater() {
+				let item = this.waterList.find(i => i.waters_id == this.nowWater)
+				MobilePhoneLocation(item.waters__e_lat+','+item.waters__e_lng)
+				Water_area_markRequest(this.nowWater.toString())
+			},
+			labelSave() {
+				if (this.ruleForm.id == 'WaterTagBtn') { // 新建
+					this.newWaterLabel()
+				} else { // 编辑
+					this.saveWaterLabel()
+				}
+			},
+			saveWaterLabel() { // 编辑保存标签信息
+				// this.$toast('保存成功')
+				// this.labelDialogVisible = false
+				this.ruleForm.att_list = []
+				this.ruleForm.att_list.push(this.oss_imgurl)
+				let params = {
+					labelList: [
+						{
+							labelId: this.ruleForm.id,
+							areas: this.ruleForm.area,
+							name: this.ruleForm.name,
+							desc: this.ruleForm.desc,
+							sTime: this.waterDate,
+							imageList: this.ruleForm.att_list
+						}
+					]
+				}
+				axios.post("http://47.114.52.47/v1/pc/water_area_label/update/", params)
+					.then((res) => {
+						this.$toast('保存成功')
+						this.labelDialogVisible = false
+						Water_area_label_Tag(this.nowWater.toString())
+					});
+			},
+			loadWaterLabel() { // 加载标签信息
+				this.oss_imgurl = ''
+				this.srcList = []
+				axios.get("http://47.114.52.47/v1/pc/water_area_label/?" + 'labelId=' + app.ruleForm.id)
+					.then((res) => {
+						this.ruleForm = res.data.data[0]
+						if (res.data.data[0].att_list.length) {
+							this.oss_imgurl = res.data.data[0].att_list[0].image_address
+							this.srcList.push(this.oss_imgurl)
+						}
+						if (res.data.data[0].s_time) {
+							this.waterDate = res.data.data[0].s_time.substring(0,10)
+						}
+						console.log(this.oss_imgurl)
+					});
+			},
+			newWaterLabel() { // 新建标签信息
+				this.ruleForm.att_list = []
+				this.ruleForm.att_list.push(this.oss_imgurl)
+				let params = {
+					labelList: [
+						{
+							watersId: this.nowWater,
+							areas: this.ruleForm.area,
+							name: this.ruleForm.name,
+							desc: this.ruleForm.desc,
+							sTime: this.waterDate,
+							imageList: this.ruleForm.att_list
+						}
+					]
+				}
+				axios.post("http://47.114.52.47/v1/pc/water_area_label/", params)
+				.then((res) => {
+					this.$toast('保存成功')
+					this.labelDialogVisible = false
+					Water_area_label_Tag(this.nowWater.toString())
+				});
+			},
+			onblur(){
+				setTimeout(() => {
+					this.$refs.select.blur()
+					// if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){ //判断iPhone|iPad|iPod|iOS
+					// this.$refs.select.blur()
+					// }
+					var scrollHeight=document.documentElement.scrollTop || document.body.scrollTop||0;
+					window.scrollTo(0,Math.max(scrollHeight-1,0))
+				}, 100);
+			},
+			//取消只读
+			cancalReadOnly(onOff){
+				this.$nextTick(()=>{
+				if(!onOff){
+					const {select} =this.$refs;
+					const input =select.$el.querySelector('.el-input__inner')
+					input.removeAttribute('readonly')
+				}
+				})
+			},
+			openPicker() {
+				this.$refs.picker.open();
+			},
+			handleConfirm(date) {
+				this.ruleForm.s_ts = date.getTime()
+				var mounth = Number(date.getMonth())+1 > 9?Number(date.getMonth())+1: '0'+(Number(date.getMonth())+1)
+				var day = date.getDate() > 9? date.getDate(): '0'+date.getDate()
+				this.waterDate = date.getFullYear()+'-'+mounth +'-'+day
+			},
+			Uploadfile(param) {
+				upload(param)
+			},
+			handleRemove(file, fileList) {
+				console.log(file, fileList);
+			},
+			handlePictureCardPreview(file) {
+				this.oss_imgurl = file.url;
+				this.dialogVisible = true;
+			}
+
+		},
+		mounted() {
+			this.mapType = getQuery('mapType')
+			// this.mapType = 'label'
+			// axios.post('http://47.114.52.47/v1/all/waters/').then((res) => {
+			// 	this.waterList = res.data.data
+            // });
+			this.waterList = JSON.parse(localStorage.getItem('waterList'))
+			setTimeout(() => {
+				let dm = document.getElementsByClassName('messageDialog')
+				dm[0].style.visibility = 'unset'
+				dm[1].style.visibility = 'unset'
+			}, 2000);
+			if (this.mapType == 'map') {
+				// 一张图
+				data = {
+					projects_info: [{ "ship_info": [{ "project_type": 1, "id": 29, "name": "QDF-0016", "number": "0016" }], "num": "JS-SZ-YYJ-ZJJX-20210508", "id": 33, "name": "江苏苏州平江河项目", "waters_id": 23 }, { "ship_info": [{ "project_type": 1, "id": 23, "name": "QDF-0012", "number": "0012" }], "num": "XFD-0001", "id": 34, "name": "浙江嘉善祥符荡项目", "waters_id": 32 }, { "ship_info": [{ "project_type": 1, "id": 16, "name": "QDF-0006", "number": "0006" }, { "project_type": 1, "id": 14, "name": "QDF-0002", "number": "0002" }, { "project_type": 1, "id": 21, "name": "QDF-0008", "number": "0008" }, { "project_type": 1, "id": 24, "name": "QDF-0010", "number": "0010" }, { "project_type": 1, "id": 18, "name": "QDF-0005", "number": "0005" }], "num": "ZTH-001", "id": 35, "name": "浙江瑞安中塘河", "waters_id": 15 }, { "ship_info": [], "num": "JS-NJ-SH-MCH-20211001", "id": 36, "name": "江苏南京莫愁湖项目", "waters_id": 14 }, { "ship_info": [], "num": "JS-KS-BF-KLH-20210901", "id": 37, "name": "江苏昆山傀儡湖", "waters_id": 16 }, { "ship_info": [], "num": "JS-SZ-WM-SFH-20210629", "id": 38, "name": "江苏苏州白莲浜", "waters_id": 17 }, { "ship_info": [], "num": "JS-SZ-STT-XXXX-20210629", "id": 39, "name": "江苏苏州前塘河项目", "waters_id": 18 }, { "ship_info": [], "num": "DYH-0001", "id": 40, "name": "江苏常州大运河项目", "waters_id": 19 }, { "ship_info": [], "num": "JS-CZ-BTH-0001", "id": 41, "name": "江苏常州北塘河项目", "waters_id": 64 }, { "ship_info": [], "num": "JS-KS-BF-HQ-20210705", "id": 42, "name": "江苏苏州花桥河", "waters_id": 20 }, { "ship_info": [], "num": "JS-SZ-YYJ-CH-20210508", "id": 43, "name": "江苏苏州漕湖项目", "waters_id": 24 }, { "ship_info": [{ "project_type": 2, "id": 28, "name": "QDF-0015", "number": "0015" }], "num": "SLSX-001", "id": 44, "name": "浙江嘉善十里水乡项目", "waters_id": 25 }, { "ship_info": [{ "project_type": 1, "id": 25, "name": "QDF-0013", "number": "0013" }], "num": "JS-SZ-QD-TED-20201117", "id": 46, "name": "江苏苏州天鹅湖项目", "waters_id": 29 }, { "ship_info": [{ "project_type": 1, "id": 27, "name": "QDF-0009", "number": "0009" }, { "project_type": 1, "id": 15, "name": "QDF-0001", "number": "0001" }], "num": "XH-001", "id": 47, "name": "浙江杭州西湖项目", "waters_id": 30 }, { "ship_info": [{ "project_type": 1, "id": 20, "name": "QDF-0007", "number": "0007" }], "num": "HMH-001", "id": 49, "name": "北京昆明湖项目", "waters_id": 33 }, { "ship_info": [], "num": "zj-hj-bj-cgj202109", "id": 55, "name": "浙江杭州滨江项目", "waters_id": 35 }, { "ship_info": [{ "project_type": 1, "id": 30, "name": "QDF-0017", "number": "0017" }, { "project_type": 1, "id": 33, "name": "QDF-0020", "number": "0020" }, { "project_type": 1, "id": 31, "name": "QDF-0018", "number": "0018" }, { "project_type": 1, "id": 36, "name": "CFZ-0002", "number": "CFZ-0002" }, { "project_type": 1, "id": 35, "name": "CFZ-0001", "number": "CFZ-0001" }, { "project_type": 1, "id": 37, "name": "CFZ-0003", "number": "CFZ-0003" }, { "project_type": 1, "id": 38, "name": "CFZ-0004", "number": "CFZ-0004" }, { "project_type": 1, "id": 39, "name": "CFZ-0005", "number": "CFZ-0005" }, { "project_type": 1, "id": 40, "name": "CFZ-0006", "number": "CFZ-0006" }, { "project_type": 1, "id": 41, "name": "CFZ-0007", "number": "CFZ-0007" }, { "project_type": 1, "id": 42, "name": "CFZ-0008", "number": "CFZ-0008" }], "num": "WZJY2021102501", "id": 56, "name": "浙江温州市鹿城区", "waters_id": 61 }, { "ship_info": [], "num": "wrth-ra-z-0001", "id": 57, "name": "浙江瑞安温瑞塘河", "waters_id": 61 }, { "ship_info": [], "num": "HN-ZZ-GYHH-20200901", "id": 60, "name": "河南郑州巩义黄河", "waters_id": 59 }, { "ship_info": [], "num": "ZJ-QZ-QJ-20200830", "id": 61, "name": "浙江衢州衢江", "waters_id": 58 }, { "ship_info": [], "num": "ZJ-TZ-HD-20200716", "id": 62, "name": "浙江台州河段", "waters_id": 57 }, { "ship_info": [], "num": "JS-SZ-TEH-20210119", "id": 63, "name": "江苏苏州天鹅湖", "waters_id": 29 }, { "ship_info": [], "num": "ZJ-NB-HTH-20210524", "id": 64, "name": "浙江宁波后塘河", "waters_id": 22 }, { "ship_info": [], "num": "nbhth-001", "id": 65, "name": "浙江宁波后塘河", "waters_id": 22 }, { "ship_info": [], "num": "ZJ-RA-TH20201028", "id": 66, "name": "浙江瑞安塘河", "waters_id": 31 }, { "ship_info": [], "num": "ZJ-JX-DY20220305", "id": 67, "name": "浙江嘉兴大云镇", "waters_id": 25 }, { "ship_info": [{ "project_type": 1, "id": 65, "name": "QDF-0025", "number": "0025" }], "num": "THJ-KS（2022）024", "id": 68, "name": "四川成都锦江水生态治理", "waters_id": 62 }, { "ship_info": [{ "project_type": 1, "id": 69, "name": "QFD-0022", "number": "0022" }], "num": "ZJ-SX-SDJD20220328", "id": 69, "name": "浙江绍兴孙端街道", "waters_id": 63 }, { "ship_info": [{ "project_type": 1, "id": 70, "name": "QDF-0023", "number": "0023" }], "num": "JS-CZ-BTH20220401", "id": 70, "name": "江苏常州河道处河道保洁(北塘河)", "waters_id": 64 }, { "ship_info": [{ "project_type": 1, "id": 32, "name": "QDF-0019", "number": "0019" }, { "project_type": 1, "id": 71, "name": "QDF-0026", "number": "0026" }], "num": "JS-CZ-LDYH20220401", "id": 71, "name": "江苏常州河道处河道保洁(老大运河)", "waters_id": 65 }, { "ship_info": [{ "project_type": 1, "id": 72, "name": "QDF-0027", "number": "0027" }], "num": "ZJ-XS-LPZ", "id": 72, "name": "浙江萧山临浦镇峙山河", "waters_id": 66 }, { "ship_info": [{ "project_type": 3, "id": 73, "name": "QDF-0028", "number": "0028" }], "num": "HB-JSH-QT-2022-005", "id": 73, "name": "河北孝义河人工湿地强化去除富营养化水体氮素关键技术研究", "waters_id": 67 }, { "ship_info": [], "num": "ZJ-ZS-LCH20220604", "id": 74, "name": "浙江舟山临城河", "waters_id": 68 }, { "ship_info": [], "num": "ZJ-ZS-BQZH20220609", "id": 75, "name": "浙江舟山白泉主河", "waters_id": 69 }, { "ship_info": [], "num": "ZJ-ZS-TLZH20220607", "id": 76, "name": "浙江舟山田螺峙河", "waters_id": 70 }, { "ship_info": [], "num": "ZJ-RA-TTPH20220615", "id": 77, "name": "浙江瑞安汀田浦河", "waters_id": 71 }, { "ship_info": [], "num": "ZJ-RA-TX-XDDH20220627", "id": 78, "name": "浙江瑞安塘下新渎河", "waters_id": 73 }, { "ship_info": [], "num": "ZJ-RA-TX-FDH20220627", "id": 79, "name": "浙江瑞安塘下凤山河", "waters_id": 72 }, { "ship_info": [], "num": "ZJ-RA-TJYH20220717", "id": 80, "name": "浙江瑞安天井垟河", "waters_id": 74 }, { "ship_info": [], "num": "JSSW2022-G-001", "id": 81, "name": "苏州平江区", "waters_id": 23 }, { "ship_info": [{ "project_type": 1, "id": 25, "name": "QDF-0013", "number": "0013" }], "num": "JS-SZ-XTH20220819", "id": 82, "name": "苏州水利工程", "waters_id": 75 }, { "ship_info": [{ "project_type": 1, "id": 75, "name": "QDF-0030", "number": "0030" }], "num": "JS-KS-XYH20220826", "id": 83, "name": "江苏昆山小虞河", "waters_id": 76 }, { "ship_info": [{ "project_type": 1, "id": 74, "name": "QDF-0029", "number": "0029" }], "num": "ZJ-JX-SJQG20220828", "id": 89, "name": "嘉善孙家桥港", "waters_id": 77 }, { "ship_info": [{ "project_type": 1, "id": 78, "name": "苏市水保5001", "number": "0033" }, { "project_type": 1, "id": 77, "name": "苏市水保5002", "number": "0032" }], "num": "JS-NJ-MST20220916", "id": 90, "name": "江苏省苏州市姑苏区茅山塘", "waters_id": 78 }, { "ship_info": [{ "project_type": 1, "id": 76, "name": "苏市水保5003", "number": "0031" }], "num": "JS-NJ-WTH20220916", "id": 91, "name": "江苏省苏州市姑苏区外塘河", "waters_id": 79 }]
+				}
+			} else if (this.mapType == 'label') {
+				// 水域标注
+				data = {
+					projects_info: this.waterList
+				}
+			} else {
+				// data = {
+				// 	"projects_info": [
+				// 		{
+				// 			"name": "环城河", 
+				// 			"waters_id": 78,
+				// 			"ship_info": [
+				// 				{ "project_type": 1, "id": 78, "name": "苏市水保5001", "number": "0033" }
+				// 			]
+				// 		}
+				// 	]
+				// }
+				data = {
+					"projects_info": [
+						{
+							"name": getQuery('name'),
+							"waters_id": Number(getQuery('waters_id')),
+							"ship_info": [
+								{
+									"id": Number(getQuery('id')),
+									"name": getQuery('shipName'),
+									"project_type": 1,
+									"number": getQuery('number')
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+	})
+  function getPolicyBase64 () {
+    let date = new Date();
+    date.setHours(date.getHours() + env.timeout);
+    let srcT = date.toISOString();
+    const policyText = {
+      "expiration": srcT, //设置该Policy的失效时间，超过这个失效时间之后，就没有办法通过这个policy上传文件了 
+      "conditions": [
+        ["content-length-range", 0, 5 * 1024 * 1024] // 设置上传文件的大小限制,5mb
+      ]
+    };
+
+    const policyBase64 = base64.encode(JSON.stringify(policyText));
+    console.log(policyBase64);
+    return policyBase64;
+  }
+  function getSignature (policyBase64) {
+    const accesskey = ossData.accessSecret;
+
+    const bytes = Crypto.HMAC(Crypto.SHA1, policyBase64, accesskey, {
+      asBytes: true
+    });
+    const signature = Crypto.util.bytesToBase64(bytes);
+    console.log(signature);
+    return signature;
+  }
+
+
+	var num = 0; // 影像图
+	var lineNum = 0 // 画线功能
+	var unityInstance = UnityLoader.instantiate("unityContainer", "./Build/YMKJ b1.2.7.json", { onProgress: UnityProgress });
+	// var data = {
+	// 	projects_info: [{ "ship_info": [{ "project_type": 1, "id": 29, "name": "QDF-0016", "number": "0016" }], "num": "JS-SZ-YYJ-ZJJX-20210508", "id": 33, "name": "江苏苏州平江河项目", "waters_id": 23 }, { "ship_info": [{ "project_type": 1, "id": 23, "name": "QDF-0012", "number": "0012" }], "num": "XFD-0001", "id": 34, "name": "浙江嘉善祥符荡项目", "waters_id": 32 }, { "ship_info": [{ "project_type": 1, "id": 16, "name": "QDF-0006", "number": "0006" }, { "project_type": 1, "id": 14, "name": "QDF-0002", "number": "0002" }, { "project_type": 1, "id": 21, "name": "QDF-0008", "number": "0008" }, { "project_type": 1, "id": 24, "name": "QDF-0010", "number": "0010" }, { "project_type": 1, "id": 18, "name": "QDF-0005", "number": "0005" }], "num": "ZTH-001", "id": 35, "name": "浙江瑞安中塘河", "waters_id": 15 }, { "ship_info": [], "num": "JS-NJ-SH-MCH-20211001", "id": 36, "name": "江苏南京莫愁湖项目", "waters_id": 14 }, { "ship_info": [], "num": "JS-KS-BF-KLH-20210901", "id": 37, "name": "江苏昆山傀儡湖", "waters_id": 16 }, { "ship_info": [], "num": "JS-SZ-WM-SFH-20210629", "id": 38, "name": "江苏苏州白莲浜", "waters_id": 17 }, { "ship_info": [], "num": "JS-SZ-STT-XXXX-20210629", "id": 39, "name": "江苏苏州前塘河项目", "waters_id": 18 }, { "ship_info": [], "num": "DYH-0001", "id": 40, "name": "江苏常州大运河项目", "waters_id": 19 }, { "ship_info": [], "num": "JS-CZ-BTH-0001", "id": 41, "name": "江苏常州北塘河项目", "waters_id": 64 }, { "ship_info": [], "num": "JS-KS-BF-HQ-20210705", "id": 42, "name": "江苏苏州花桥河", "waters_id": 20 }, { "ship_info": [], "num": "JS-SZ-YYJ-CH-20210508", "id": 43, "name": "江苏苏州漕湖项目", "waters_id": 24 }, { "ship_info": [{ "project_type": 2, "id": 28, "name": "QDF-0015", "number": "0015" }], "num": "SLSX-001", "id": 44, "name": "浙江嘉善十里水乡项目", "waters_id": 25 }, { "ship_info": [{ "project_type": 1, "id": 25, "name": "QDF-0013", "number": "0013" }], "num": "JS-SZ-QD-TED-20201117", "id": 46, "name": "江苏苏州天鹅湖项目", "waters_id": 29 }, { "ship_info": [{ "project_type": 1, "id": 27, "name": "QDF-0009", "number": "0009" }, { "project_type": 1, "id": 15, "name": "QDF-0001", "number": "0001" }], "num": "XH-001", "id": 47, "name": "浙江杭州西湖项目", "waters_id": 30 }, { "ship_info": [{ "project_type": 1, "id": 20, "name": "QDF-0007", "number": "0007" }], "num": "HMH-001", "id": 49, "name": "北京昆明湖项目", "waters_id": 33 }, { "ship_info": [], "num": "zj-hj-bj-cgj202109", "id": 55, "name": "浙江杭州滨江项目", "waters_id": 35 }, { "ship_info": [{ "project_type": 1, "id": 30, "name": "QDF-0017", "number": "0017" }, { "project_type": 1, "id": 33, "name": "QDF-0020", "number": "0020" }, { "project_type": 1, "id": 31, "name": "QDF-0018", "number": "0018" }, { "project_type": 1, "id": 36, "name": "CFZ-0002", "number": "CFZ-0002" }, { "project_type": 1, "id": 35, "name": "CFZ-0001", "number": "CFZ-0001" }, { "project_type": 1, "id": 37, "name": "CFZ-0003", "number": "CFZ-0003" }, { "project_type": 1, "id": 38, "name": "CFZ-0004", "number": "CFZ-0004" }, { "project_type": 1, "id": 39, "name": "CFZ-0005", "number": "CFZ-0005" }, { "project_type": 1, "id": 40, "name": "CFZ-0006", "number": "CFZ-0006" }, { "project_type": 1, "id": 41, "name": "CFZ-0007", "number": "CFZ-0007" }, { "project_type": 1, "id": 42, "name": "CFZ-0008", "number": "CFZ-0008" }], "num": "WZJY2021102501", "id": 56, "name": "浙江温州市鹿城区", "waters_id": 61 }, { "ship_info": [], "num": "wrth-ra-z-0001", "id": 57, "name": "浙江瑞安温瑞塘河", "waters_id": 61 }, { "ship_info": [], "num": "HN-ZZ-GYHH-20200901", "id": 60, "name": "河南郑州巩义黄河", "waters_id": 59 }, { "ship_info": [], "num": "ZJ-QZ-QJ-20200830", "id": 61, "name": "浙江衢州衢江", "waters_id": 58 }, { "ship_info": [], "num": "ZJ-TZ-HD-20200716", "id": 62, "name": "浙江台州河段", "waters_id": 57 }, { "ship_info": [], "num": "JS-SZ-TEH-20210119", "id": 63, "name": "江苏苏州天鹅湖", "waters_id": 29 }, { "ship_info": [], "num": "ZJ-NB-HTH-20210524", "id": 64, "name": "浙江宁波后塘河", "waters_id": 22 }, { "ship_info": [], "num": "nbhth-001", "id": 65, "name": "浙江宁波后塘河", "waters_id": 22 }, { "ship_info": [], "num": "ZJ-RA-TH20201028", "id": 66, "name": "浙江瑞安塘河", "waters_id": 31 }, { "ship_info": [], "num": "ZJ-JX-DY20220305", "id": 67, "name": "浙江嘉兴大云镇", "waters_id": 25 }, { "ship_info": [{ "project_type": 1, "id": 65, "name": "QDF-0025", "number": "0025" }], "num": "THJ-KS（2022）024", "id": 68, "name": "四川成都锦江水生态治理", "waters_id": 62 }, { "ship_info": [{ "project_type": 1, "id": 69, "name": "QFD-0022", "number": "0022" }], "num": "ZJ-SX-SDJD20220328", "id": 69, "name": "浙江绍兴孙端街道", "waters_id": 63 }, { "ship_info": [{ "project_type": 1, "id": 70, "name": "QDF-0023", "number": "0023" }], "num": "JS-CZ-BTH20220401", "id": 70, "name": "江苏常州河道处河道保洁(北塘河)", "waters_id": 64 }, { "ship_info": [{ "project_type": 1, "id": 32, "name": "QDF-0019", "number": "0019" }, { "project_type": 1, "id": 71, "name": "QDF-0026", "number": "0026" }], "num": "JS-CZ-LDYH20220401", "id": 71, "name": "江苏常州河道处河道保洁(老大运河)", "waters_id": 65 }, { "ship_info": [{ "project_type": 1, "id": 72, "name": "QDF-0027", "number": "0027" }], "num": "ZJ-XS-LPZ", "id": 72, "name": "浙江萧山临浦镇峙山河", "waters_id": 66 }, { "ship_info": [{ "project_type": 3, "id": 73, "name": "QDF-0028", "number": "0028" }], "num": "HB-JSH-QT-2022-005", "id": 73, "name": "河北孝义河人工湿地强化去除富营养化水体氮素关键技术研究", "waters_id": 67 }, { "ship_info": [], "num": "ZJ-ZS-LCH20220604", "id": 74, "name": "浙江舟山临城河", "waters_id": 68 }, { "ship_info": [], "num": "ZJ-ZS-BQZH20220609", "id": 75, "name": "浙江舟山白泉主河", "waters_id": 69 }, { "ship_info": [], "num": "ZJ-ZS-TLZH20220607", "id": 76, "name": "浙江舟山田螺峙河", "waters_id": 70 }, { "ship_info": [], "num": "ZJ-RA-TTPH20220615", "id": 77, "name": "浙江瑞安汀田浦河", "waters_id": 71 }, { "ship_info": [], "num": "ZJ-RA-TX-XDDH20220627", "id": 78, "name": "浙江瑞安塘下新渎河", "waters_id": 73 }, { "ship_info": [], "num": "ZJ-RA-TX-FDH20220627", "id": 79, "name": "浙江瑞安塘下凤山河", "waters_id": 72 }, { "ship_info": [], "num": "ZJ-RA-TJYH20220717", "id": 80, "name": "浙江瑞安天井垟河", "waters_id": 74 }, { "ship_info": [], "num": "JSSW2022-G-001", "id": 81, "name": "苏州平江区", "waters_id": 23 }, { "ship_info": [{ "project_type": 1, "id": 25, "name": "QDF-0013", "number": "0013" }], "num": "JS-SZ-XTH20220819", "id": 82, "name": "苏州水利工程", "waters_id": 75 }, { "ship_info": [{ "project_type": 1, "id": 75, "name": "QDF-0030", "number": "0030" }], "num": "JS-KS-XYH20220826", "id": 83, "name": "江苏昆山小虞河", "waters_id": 76 }, { "ship_info": [{ "project_type": 1, "id": 74, "name": "QDF-0029", "number": "0029" }], "num": "ZJ-JX-SJQG20220828", "id": 89, "name": "嘉善孙家桥港", "waters_id": 77 }, { "ship_info": [{ "project_type": 1, "id": 78, "name": "苏市水保5001", "number": "0033" }, { "project_type": 1, "id": 77, "name": "苏市水保5002", "number": "0032" }], "num": "JS-NJ-MST20220916", "id": 90, "name": "江苏省苏州市姑苏区茅山塘", "waters_id": 78 }, { "ship_info": [{ "project_type": 1, "id": 76, "name": "苏市水保5003", "number": "0031" }], "num": "JS-NJ-WTH20220916", "id": 91, "name": "江苏省苏州市姑苏区外塘河", "waters_id": 79 }]
+	// }
+	var data
+	window.alert = function() {
+		return false;
+	}
+	window.test = (id) => {
+		if (id == 'false') {
+			app.wvbtnshow = false
+		} else {
+			app.wvbtnshow = true
+		}
+
+	};
+	window.postTaskId = (id) => {
+		app.taskId = id
+	};
+	window.postPosition = (id) => {
+		MobilePhoneLocation(id)
+	};
+	window.postLocation = (id) => {
+		app.location = id
+	};
+	window.postEndTime = (id) => {
+		if (id != '') { // 结束状态
+			app.endTime = id
+			app.isend = true
+		} else {
+			app.isend = false
+		}
+	};
+	// 接收地图显示类型
+	window.postMapType = (id) => {
+		app.mapType = id
+	};
+	//取url中的参数值
+	function getQuery(name) {
+		// 正则：[找寻'&' + 'url参数名字' = '值' + '&']（'&'可以不存在）
+		let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		let r = window.location.search.substr(1).match(reg);
+		console.log(r);
+		if (r != null) {
+			// 对参数值进行解码
+			return decodeURIComponent(r[2]);
+		}
+		return null;
+	}
+
+	document.addEventListener('UniAppJSBridgeReady', function () {
+		uni.getEnv(function (res) {
+			console.log('当前环境：' + JSON.stringify(res))
+		})
+		
+
+		// console.log( JSON.stringify(data),  'data')
+		//向APP发送消息  
+		uni.postMessage({
+			data: {
+				action: 'message'
+			}
+		});
+	});
+	//<!--接收项目所需的账号信息接口-->
+	function Projects_Info(Dtype) {
+		console.log(Dtype)
+		unityInstance.SendMessage("Main", "Projects_Info", Dtype);
+	}
+	//路径规划地图交互方法
+	//deletePoint（删除点位），newPath（新建路径），deletePath（清除路径），warningEventsOpen（预警事件打开），warningEventsClose（预警事件关闭），administrativeMap（行政图），shadowgraph（影像图）
+	//modifyTheRoutes（修改航线），real_timeScheduling（实时调度），mapZoom（地图放大），mapNarrow（地图缩小），newPoint（新增点位）
+	function RoutePlanningInteraction(Dtype) {
+		if (app.isChangeLine && (Dtype == 'mapZoom' || Dtype == 'mapNarrow' || Dtype == 'administrativeMap' || Dtype == 'shadowgraph' || Dtype == 'warningEventsOpen')) {
+			return
+		}
+		if (Dtype == 'real_timeScheduling' || Dtype == 'modifyTheRoutes') {
+			unityInstance.SendMessage("WebPageInteraction", "RoutePlanningInteraction", 'warningEventsClose');
+		}
+		if (Dtype == 'shadowgraph') {
+			num++
+			if (num % 2 == 0) { // 偶数为影像图
+				Dtype = 'shadowgraph'
+			} else { // 奇数为行政图
+				Dtype = 'administrativeMap'
+			}
+		}
+		unityInstance.SendMessage("WebPageInteraction", "RoutePlanningInteraction", Dtype);
+	}
+
+	//水域标注交互方法
+	//add（多边形点位新增），modification（标注修改），close（删除），save（保存），circleadd（圆形添加），rectangleadd（矩形添加），polygonadd（多边形进入/画线），polygonExit（多边形退出/画线），waterTag（标签）
+	function WaterLableOnClickBtn(Dtype) {
+
+		unityInstance.SendMessage("WaterLablePath", "WaterLableOnClickBtn", Dtype);
+	}
+	//手机定位方法
+	////(示例：31.151,120.545)
+	function MobilePhoneLocation(Dtype) {
+		unityInstance.SendMessage("WebPageInteraction", "MobilePhoneLocation", Dtype);
+	}
+	// 船的定位方法
+	function GPSShips(Dtype) {
+		unityInstance.SendMessage("WebPageInteraction", "GPSShips", Dtype);
+	}
+	//保存路径按钮事件
+	////(示例：6)//新创建的任务id
+	function SavePath(Dtype) {
+		console.log(app.taskId, 'app.taskId')
+		unityInstance.SendMessage("WebPageInteraction", "SavePath", app.taskId);
+	}
+	//巡河地图按钮事件
+	////(示例：6)//当前任务的id
+	function RiverMap(Dtype) {
+		unityInstance.SendMessage("WebPageInteraction", "RiverMap", app.taskId);
+	}
+	//<!--无人船运行轨迹查询-->
+	//(示例：QDF-0002_当天的时间戳)
+	//(示例：QDF-0002_1638633600000)
+	function HistoryShip(Dtype) {
+		unityInstance.SendMessage("Map", "HistoryShip", Dtype);
+	}
+	///////向前端传参
+	//<!--传给前端事件信息-->
+	//Dtype==loadingCompleted表示地图加载完成
+	function NotificationEvent(Dtype) {
+		window.parent.postMessage(Dtype, '*');
+		if (Dtype == 'loadingCompleted') {
+			console.log('asd')
+			// Projects_Info(JSON.stringify(data))
+			if(app.mapType == 'label') {
+				// Water_area_markRequest('82')
+			} else if (app.mapType == 'map') {
+				// Water_area_markRequest('82')
+				Projects_Info(JSON.stringify(data))
+			} else {
+				setTimeout(() => {
+					Projects_Info(JSON.stringify(data))
+					// let msg = {"projects_info": [{"name": "环城河", "waters_id": 78,"ship_info": [{ "project_type": 1, "id": 78, "name": "苏市水保5001", "number": "0033" }]}]}
+					// Projects_Info(JSON.stringify(msg))
+					// MobilePhoneLocation(app.location)
+					// GPSShips(data.projects_info[0].ship_info[0].number)
+					RiverMap()
+					app.showSearch = true
+					if (app.endTime != '') {
+						HistoryShip(app.endTime)
+					}
+				}, 1000)
+			}
+			// Projects_Info(JSON.stringify(data))
+
+		}
+	}
+
+	//<!--传给前端事件信息-->
+	//Dtype==isOK表示保存成功，Dtype==isNO表示保存失败
+	function IsPathSave(Dtype) {
+		window.parent.postMessage(Dtype, '*');
+		if (Dtype == 'isOK') {
+			app.$toast('保存成功')
+		} else if (Dtype == 'isNO') {
+			app.$toast('保存失败')
+		}
+	}
+	//<!--传给路径是否删除成功信息-->
+	//Dtype==DeletePathOK表示保存成功，Dtype==DeletePathNO表示保存失败
+	function IsDeletePath(Dtype) {
+		window.parent.postMessage(Dtype, '*');
+		if (Dtype == 'DeletePathOK') {
+			if (app.imgActive == '11') { // 保存状态
+				SavePath()
+			} else {
+				app.$toast('清除成功')
+			}
+			if (app.isChangeLine) { // 修改航线状态下清除
+				RoutePlanningInteraction('modifyTheRoutes') // 先打开画布
+				app.isChangeLine = false // 改变修改航线状态
+			}
+		}
+
+	}
+
+	//UI开关功能
+	//planPathOpen（规划路线打开）、planPathClose（规划路线关闭）、practicalPathOpen（实际运行轨迹开启）、practicalPathClose：（实际运行轨迹关闭）、fencePathOpen（电子围栏打开）、fencePathClose（电子围栏关闭）
+	//detectOpen(疑似暗管打开)、detectClose（疑似暗管关闭）、MonitoringPointOpen（水质监测打开）、MonitoringPointClose（水质监测关闭）、WarningIncidentOpen（预警事件打开）、WarningIncidentClose（预警事件关闭）
+	//
+	function MapPath(Dtype) {
+		unityInstance.SendMessage("WebPageInteraction", "MapPath", Dtype);
+	}
+
+
+	//水域标注界面获取水域标注信息
+	////(打开：Dtype=水域id;)
+	function Water_area_markRequest(Dtype) {
+		unityInstance.SendMessage("WaterLablePath", "Water_area_markRequest", Dtype);
+	}
+
+	//智能巡河界面获取水域标注信息
+	////(打开：Dtype=水域id;)
+	function DispatchTrackWater_area_markRequest(Dtype) {
+		unityInstance.SendMessage("WaterLablePath", "DispatchTrackWater_area_markRequest", Dtype);
+	}
+
+	//电子围栏开启和关闭方法
+	////(打开：Dtype=waterid;关闭：Exit)
+	function FenceInformationRequest(Dtype) {
+		unityInstance.SendMessage("Track", "FenceInformationRequest", Dtype);
+	}
+
+	///////向前端传参
+	//<!--传给前端水域标注标签id-->
+	//Dtype==标签id
+	function WaterTagID(Dtype) {
+		window.parent.postMessage(Dtype, '*');
+		let id = Dtype.split('_')
+		app.ruleForm.id = id[0]
+		app.ruleForm.area = id[1]
+		app.labelDialogVisible = true
+		if (id[0] != 'WaterTagBtn') {
+			app.loadWaterLabel()
+		} else {
+			app.ruleForm.desc = ''
+			app.ruleForm.name = ''
+			app.oss_imgurl = ''
+			app.srcList = []
+			let date = new Date()
+			var mounth = Number(date.getMonth())+1 > 9?Number(date.getMonth())+1: '0'+(Number(date.getMonth())+1)
+			var day = date.getDate() > 9? date.getDate(): '0'+date.getDate()
+			app.waterDate = date.getFullYear() + '-' + mounth + '-' + day
+		}
+	}
+
+	//<!--传给前端弹窗信息-->
+	//无人船：船名_编号
+	function Ship_Name(Dtype) {
+		//var Dtype = name;
+		window.parent.postMessage(Dtype, '*');
+	}
+
+	//<!--传给前端疑似暗管点位信息-->
+	//Dtype:当前点位的所有信息
+	function SuspectedDrainageTubes(Dtype) {
+		//var Dtype = name;
+		window.parent.postMessage(Dtype, '*');
+	}
+
+	//<!--传给前端预警事件点位信息-->
+	//Dtype:当前点位的所有信息
+	function WarningIncidentName(Dtype) {
+		//var Dtype = name;
+		window.parent.postMessage(Dtype, '*');
+		let data = JSON.parse(Dtype)[0]
+		app.imgurl = data.imageAddress
+		if(app.imgurl) {
+			app.imgShow = true
+		}
+	}
+	//WarningIncidentLocation
+
+	//<!--传给前端监测点点位信息-->
+	//Dtype:当前点位的所有信息
+	function MonitoringPointLocation(Dtype) {
+		//var Dtype = name;
+		window.parent.postMessage(Dtype, '*');
+	}
+
+	//水域标注界面获取水域标注信息
+	////(打开：Dtype=水域id;)
+	function Water_area_label_Tag(Dtype)
+	{
+	unityInstance.SendMessage("WaterLableTag", "Water_area_label_Tag",Dtype);
+	}
+
+</script>
+
+</html>

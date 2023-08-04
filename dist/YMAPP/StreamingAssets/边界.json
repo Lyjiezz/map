@@ -1,0 +1,173 @@
+[
+  {
+    "pitch_angle": -1.8238084316253662,
+    "velocity_east": -0.026291901245713234,
+    "navigation_time": 13125780,
+    "height": 10.857274055480957,
+    "speed": 0.0374377040403822,
+    "waterDistance": 0,
+    "trackId": 19,
+    "soc_per_kilo": 2,
+    "remainMiles": "None",
+    "latitude": 30.265906,
+    "steer_control_drive": "1",
+    "waterDistanceWarn": 0,
+    "rolling_angle": 0.5093919634819031,
+    "angle_north": -43.287086486816406,
+    "soc_mean": 85,
+    "inTrack": 0,
+    "velocity_universe": 0.023762663826346397,
+    "no_sv": 28,
+    "velocity_north": 0.004365036264061928,
+    "longitude": 120.162707,
+    "shipNum": "0017",
+    "batteryNum": 2,
+    "water_quality": {
+      "oxy": 0,
+      "cl": 0,
+      "K": 0,
+      "c_time": 1628048235,
+      "resist": 0,
+      "NH4": 0,
+      "NH3": 0,
+      "conduct": 0,
+      "tds": 0,
+      "ph": 0,
+      "salt": 0,
+      "turb": 0
+    }
+  },
+  {
+    "pitch_angle": -1.2946898937225342,
+    "velocity_east": -0.00015700377116445452,
+    "navigation_time": 22733950,
+    "height": 25.564605712890625,
+    "speed": 0.0006322621604912012,
+    "waterDistance": 0,
+    "trackId": 32,
+    "soc_per_kilo": 2,
+    "remainMiles": "None",
+    "latitude": 30.256673,
+    "steer_control_drive": "1",
+    "waterDistanceWarn": 0,
+    "rolling_angle": 0.23808060586452484,
+    "angle_north": -3.7922435998916626,
+    "soc_mean": 84,
+    "inTrack": 0,
+    "velocity_universe": -0.0005252579576335847,
+    "no_sv": 0,
+    "velocity_north": 0.000591992458794266,
+    "longitude": 120.141363,
+    "shipNum": "0014",
+    "batteryNum": 2,
+    "water_quality": {
+      "oxy": 0,
+      "cl": 0,
+      "K": 0,
+      "c_time": 1626749391,
+      "resist": 0,
+      "NH4": 0,
+      "NH3": 0,
+      "conduct": 0,
+      "tds": 0,
+      "ph": 0,
+      "salt": 0,
+      "turb": 0
+    }
+  },
+  {
+    "pitch_angle": -1.0808289051055908,
+    "velocity_east": 0.005961250513792038,
+    "navigation_time": 16318960,
+    "height": 12.190673828125,
+    "speed": 0.009804269675711066,
+    "waterDistance": 0,
+    "trackId": 19,
+    "soc_per_kilo": 2,
+    "remainMiles": "None",
+    "latitude": 30.238515,
+    "steer_control_drive": "0",
+    "waterDistanceWarn": 0,
+    "rolling_angle": -1.5864112377166748,
+    "soc_mean": 78,
+    "inTrack": 0,
+    "velocity_universe": 0.004146585240960121,
+    "no_sv": 28,
+    "velocity_north": -0.005005066283047199,
+    "longitude": 120.150203,
+    "shipNum": "0013",
+    "batteryNum": 2,
+    "angle_north": -109.43377685546875
+  },
+  {
+    "pitch_angle": 1.8197906017303467,
+    "velocity_east": -0.08337264508008957,
+    "navigation_time": 97265110,
+    "height": 16.245811462402344,
+    "speed": 0.15058045309031515,
+    "waterDistance": 0,
+    "trackId": 19,
+    "soc_per_kilo": 2,
+    "remainMiles": "None",
+    "latitude": 30.256922,
+    "steer_control_drive": "1",
+    "waterDistanceWarn": 0,
+    "rolling_angle": 0.7400084733963013,
+    "soc_mean": 56.5,
+    "inTrack": 0,
+    "velocity_universe": 0.0032564231660217047,
+    "no_sv": 28,
+    "velocity_north": 0.09366150200366974,
+    "longitude": 120.167522,
+    "shipNum": "0005",
+    "batteryNum": 2,
+    "angle_north": 240.45233154296875
+  }
+]
+
+
+
+
+
+
+//{
+//  "data": {
+//    "pitchAngle": -1.9306416511535645, // 俯仰角
+//    "velocityEast": 0.21386194229125977, //东向速度
+//    "navigationTime": 7160190, // 导航时间 
+//    "height": 17.143821716308594, // 高度
+//    "speed": 0.34496155970189835, // 速度
+//    "waterDistance": 0, // 水深距离  0表示没有传感器数据
+//    "trackId": 19, // 轨迹编号
+//    "socPerKilo": 2.0, // 每公里消耗电量
+//    "remainMiles": "None", // 剩余里程 None表示无有效数据
+//    "latitude": 30.246655543494555, // 纬度
+//    "steerControlDrive": "1", // 驾驶模式
+//    "waterDistanceWarn": 0, // 水深告警  0表示无告警
+//    "rollingAngle": 0.13982003927230835, // 滚转角
+//    "angleNorth": 25.14093780517578, // 航向角
+//    "socMean": 49.5, // 平均电量
+//    "inTrack": 0, // 是否偏航  0表示没有偏航
+//    "velocityUniverse": -0.0021798040252178907, // 天向速度
+//    "noSv": 28, // 导航卫星个数  
+//    "velocityNorth": 0.1659054458141327, // 北向速度
+//    "longitude": 120.13443071662745, //  经度
+//    "shipNum": "0009", // 船编号
+//    "batteryNum": 2, // 电池数量
+//    "waterQuality": {
+//      "Diss_Oxy_Saturation": 97.8, // 溶解氧饱和度 单位%
+//      "chlorophy": 549.3, // 叶绿素含量 单位 ug/L
+//      "K": 1.4, // K+离子 单位 mg/L
+//      "Diss_Oxy": 10.33, // 溶解氧 单位 mg/L
+//      "NH4": 0.2, // 铵离子  单位 mg/L
+//      "Cod": 0.5, // 化学需氧量  单位 mg/L
+//      "NH3": 0.0, // 氨气  单位mg/L
+//      "device": "0009", // 船编号
+//      "PH": 8.38, // PH值
+//      "Turbidity": 3.2, // 浊度 单位NTU
+//      "createTime": "2021-02-24" // 数据采集时间
+//    }
+//  },
+//  "retCode": 0,
+//  "retMsg": "成功 | Success"
+//}
